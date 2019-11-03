@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../jquery-1.8.0.js"></script>
+</head>
+
+<body>
+<div class="box" style="width: 200px;">
+    <img width="100%" alt="" data-v-b24caf1c="" src="//www.coolz.com.cn/public/img1x/5caf329a43dad086505641.png">
+    <img width="100%" alt="" data-v-b24caf1c="" src="//www.coolz.com.cn/public/img1x/5b8aa435f1c00.jpg">
+    <img width="100%" alt="" data-v-b24caf1c="" src="//www.coolz.com.cn/public/img1x/5c5d4cd3a7adc445704358.jpg">
+</div>
+
+<script>
+
+    $.fn.extend({
+        getImgSrc: function () {
+            var src_arr = []
+            this.each(function () {
+                src_arr.push($(this).attr('src'))
+            });
+            return src_arr
+        },
+    });
+    $('.box img').getImgSrc()
+
+    
+(function() {
+
+console.info( this );
+
+console.info( arguments );
+
+}( window ) )
+
+</script>
+
+
+
+
+</body>
+
+</html>
