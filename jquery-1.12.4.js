@@ -305,6 +305,7 @@ jQuery.extend( {
 			if ( obj.constructor &&
 				!hasOwn.call( obj, "constructor" ) &&
 				!hasOwn.call( obj.constructor.prototype, "isPrototypeOf" ) ) {
+					console.log(hasOwn.call( obj.constructor.prototype, "isPrototypeOf" ))
 				return false;
 			}
 		} catch ( e ) {
@@ -4667,7 +4668,7 @@ console.log(tmp.firstChild.firstChild)
 					}
 				}
 
-				jQuery.merge( nodes, tmp.childNodes );
+				jQuery.merge( nodes, tmp.childNodes );				
 console.dir(safe)
 				// Fix #12392 for WebKit and IE > 9
 				tmp.textContent = "";
