@@ -4624,8 +4624,10 @@ console.log(elem)
 			} else {
 				tmp = tmp || safe.appendChild( context.createElement( "div" ) );
 console.dir(tmp)
+console.log(tmp.ownerDocument == safe)
 				// Deserialize a standard representation
-				tag = ( rtagName.exec( elem ) || [ "", "" ] )[ 1 ].toLowerCase();console.log(tag)
+				tag = ( rtagName.exec( elem ) || [ "", "" ] )[ 1 ].toLowerCase();
+console.log(tag)
 				wrap = wrapMap[ tag ] || wrapMap._default;
 console.log(wrap)
 				tmp.innerHTML = wrap[ 1 ] + jQuery.htmlPrefilter( elem ) + wrap[ 2 ];
@@ -4635,8 +4637,9 @@ console.log(wrap[ 1 ] + jQuery.htmlPrefilter( elem ) + wrap[ 2 ])
 				while ( j-- ) {
 					tmp = tmp.lastChild;
 				}
-				console.log(tmp)
-				console.log(tmp.firstChild)
+console.dir(tmp)//tbody
+console.log(tmp.firstChild)
+console.log(tmp.firstChild.firstChild)
 				// Manually add leading whitespace removed by IE
 				if ( !support.leadingWhitespace && rleadingWhitespace.test( elem ) ) {
 					nodes.push( context.createTextNode( rleadingWhitespace.exec( elem )[ 0 ] ) );
@@ -4665,17 +4668,23 @@ console.log(wrap[ 1 ] + jQuery.htmlPrefilter( elem ) + wrap[ 2 ])
 				}
 
 				jQuery.merge( nodes, tmp.childNodes );
-console.log(safe)
+console.dir(safe)
 				// Fix #12392 for WebKit and IE > 9
 				tmp.textContent = "";
 console.log(tmp.firstChild)
+try{
+	console.log(safe.firstChild.lastChild.firstChild.firstChild)
+}catch(e){
+
+}
 				// Fix #12392 for oldIE
 				while ( tmp.firstChild ) {					
 					tmp.removeChild( tmp.firstChild );
 				}
-				console.dir(tmp)
+console.dir(tmp)
 				// Remember the top-level container for proper cleanup
-				tmp = safe.lastChild;console.log(tmp)
+				tmp = safe.lastChild;
+console.log(tmp)
 			}
 		}
 	}
@@ -4684,7 +4693,7 @@ console.log(tmp.firstChild)
 	if ( tmp ) {
 		safe.removeChild( tmp );
 	}
-
+console.log(safe)
 	// Reset defaultChecked for any radios and checkboxes
 	// about to be appended to the DOM in IE 6/7 (#8060)
 	if ( !support.appendChecked ) {
@@ -4694,6 +4703,7 @@ console.log(tmp.firstChild)
 	i = 0;
 	console.log(nodes)
 	while ( ( elem = nodes[ i++ ] ) ) {
+		console.log(elem)
 		// Skip elements already in the context collection (trac-4087)
 		if ( selection && jQuery.inArray( elem, selection ) > -1 ) {
 			if ( ignored ) {

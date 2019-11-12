@@ -2902,7 +2902,7 @@ var rootjQuery,
 						context && context.nodeType ? context.ownerDocument || context : document,
 						true
 					) );
-console.log(this)
+
 					// HANDLE: $(html, props)
 					if ( rsingleTag.test( match[ 1 ] ) && jQuery.isPlainObject( context ) ) {
 						for ( match in context ) {
